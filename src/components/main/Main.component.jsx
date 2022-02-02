@@ -3,7 +3,7 @@ import bg from "../../assets/bg.png";
 
 import "./Main.styles.css";
 
-const Main = () => {
+const Main = (props) => {
   return (
     <div
       className="bg"
@@ -16,6 +16,7 @@ const Main = () => {
         </h3>
         <p>Thursday 10/03/2022</p>
       </div>
+      {props.children}
     </div>
   );
 };
