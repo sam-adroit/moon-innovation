@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profilePics from "../../assets/profile-pics.jpg";
 import { BiSearchAlt } from "react-icons/bi";
 import { FaList, FaEllipsisV } from "react-icons/fa";
@@ -10,6 +10,7 @@ import { BsBellFill } from "react-icons/bs";
 import "./BaseViewMainHeader.styles.css";
 
 const BaseViewMainHeader = () => {
+  const [logout, setLogout] = useState(false);
   return (
     <div className="baseview-header">
       <ul className="navigation">
@@ -39,7 +40,11 @@ const BaseViewMainHeader = () => {
             <h4>Alvaro Monte</h4>
             <p>CSO MON</p>
           </div>
-          <FaEllipsisV className="ellipsis" />
+          <FaEllipsisV
+            className="ellipsis"
+            onClick={() => setLogout(!logout)}
+          />
+          <div className={!logout ? "logout" : "logout display"}></div>
         </div>
       </div>
     </div>

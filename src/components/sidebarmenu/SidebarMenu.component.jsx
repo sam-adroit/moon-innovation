@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
-import { BsToggle2On } from "react-icons/bs";
+import { BsToggle2On, BsToggle2Off } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 import "./SidebarMenu.styles.css";
 
 const SidebarMenu = () => {
+  const [login, setLogin] = useState("/login");
+
+  const HandleLogin = () => {
+    if (login === "/login") {
+      setLogin("/login-ad");
+    } else {
+      setLogin("/login");
+    }
+  };
   return (
     <div className="sidebar-menu">
       <div className="logo-shadow">
@@ -17,12 +27,17 @@ const SidebarMenu = () => {
           <h2>|</h2>
           <h2>SA</h2>
         </div>
-        <div className="togglebtn">
-          <BsToggle2On className="toggleFont" />
-          {/* <BsToggle2Off className="toggleFont" /> */}
+        <div className="togglebtn" onClick={HandleLogin}>
+          {login === "/login" ? (
+            <BsToggle2On className="toggleFont" />
+          ) : (
+            <BsToggle2Off className="toggleFont" />
+          )}
         </div>
       </div>
-      <button className="btn">Login</button>
+      <Link to={login} className="btn">
+        Login
+      </Link>
     </div>
   );
 };
