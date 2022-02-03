@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { removeUserSession } from "../../utils/utils";
 import profilePics from "../../assets/profile-pics.jpg";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSearchAlt, BiLogOut } from "react-icons/bi";
 import { FaList, FaEllipsisV } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { CgMenuGridR } from "react-icons/cg";
@@ -40,11 +42,15 @@ const BaseViewMainHeader = () => {
             <h4>Alvaro Monte</h4>
             <p>CSO MON</p>
           </div>
-          <FaEllipsisV
-            className="ellipsis"
-            onClick={() => setLogout(!logout)}
-          />
-          <div className={!logout ? "logout" : "logout display"}></div>
+          <div className="ellipsis">
+            <FaEllipsisV onClick={() => setLogout(!logout)} />
+            {console.log(logout)}
+            <div className={!logout ? "logout" : "logout logout--display"}>
+              <Link onClick={() => removeUserSession()} to="/login">
+                <BiLogOut /> Logout
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

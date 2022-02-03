@@ -109,3 +109,19 @@
   align-self: center;
   position: relative;
 }
+
+.logout {
+  visibility: hidden;
+  width: 5em;
+  padding: 1em 0;
+  background: rgb(255 255 255);
+  position: absolute;
+  bottom: calc(-100% + -2em);
+  right: 0;
+  box-shadow: 2px 2px 4px #eee;
+  z-index: 1;
+}
+
+.logout--display {
+  visibility: visible;
+}
